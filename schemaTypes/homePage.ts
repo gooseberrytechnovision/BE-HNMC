@@ -377,42 +377,6 @@ export default defineType({
                   title: 'Insurance & Billing Title',
                   type: 'text',
                   validation: (Rule) => Rule.required(),
-                }),
-                defineField({
-                  name: 'description',
-                  title: 'Insurance & Billing Description',
-                  type: 'array',
-                  of: [
-                    {
-                      type: 'object',
-                      fields: [
-                        defineField({
-                          name: 'title',
-                          title: 'Resource Title',
-                          type: 'string',
-                          validation: (Rule) => Rule.required(),
-                        }),
-                        defineField({
-                          name: 'description',
-                          title: 'Resource Description',
-                          type: 'text',
-                        }),
-                        defineField({
-                          name: 'icon',
-                          title: 'Resource Icon',
-                          type: 'image',
-                          options: {
-                            hotspot: true,
-                          },
-                        }),
-                        defineField({
-                          name: 'link',
-                          title: 'Resource Link',
-                          type: 'url',
-                        }),
-                      ],
-                    },
-                  ],
                 }), 
               ],
             },
@@ -470,21 +434,21 @@ export default defineType({
       ],
     }),
 
-    // Contact/Appointment Section
+    // Register For Patient Portal
     defineField({
-      name: 'contact',
-      title: 'Contact Section',
+      name: 'registerForPatientPortal',
+      title: 'Register For Patient Portal Section',
       type: 'object',
       fields: [
         defineField({
           name: 'title',
-          title: 'Section Title',
+          title: 'Register For Patient Portal Title',
           type: 'string',
           validation: (Rule) => Rule.required(),
         }),
         defineField({
           name: 'subtitle',
-          title: 'Section Subtitle',
+          title: 'Register For Patient Portal Subtitle',
           type: 'text',
         }),
         defineField({
@@ -510,7 +474,7 @@ export default defineType({
           ],
         }),
         defineField({
-          name: 'appointmentButton',
+          name: 'signUpButton',
           title: 'Book Appointment Button',
           type: 'object',
           fields: [
