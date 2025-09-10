@@ -57,8 +57,27 @@ export default defineType({
           description: 'Supporting text below the main headline',
         }),
         defineField({
+          name: 'badge',
+          title: 'Badge',
+          type: 'object',
+          fields: [
+            defineField({
+              name: 'text',
+              title: 'Badge Text',
+              type: 'string',
+              validation: (Rule) => Rule.required(),
+            }),
+            defineField({
+              name: 'showBadge',
+              title: 'Show Badge',
+              type: 'boolean',
+              initialValue: true,
+            }),
+          ],
+        }),
+        defineField({
           name: 'ctaButton',
-          title: 'Call to Action Button',
+          title: 'Primary Call to Action Button',
           type: 'object',
           fields: [
             defineField({
@@ -70,9 +89,137 @@ export default defineType({
             defineField({
               name: 'link',
               title: 'Button Link',
-              type: 'url',
+              type: 'string',
+              description: 'Enter relative URL or full URL',
               validation: (Rule) => Rule.required(),
             }),
+          ],
+        }),
+        defineField({
+          name: 'secondaryButton',
+          title: 'Secondary Button',
+          type: 'object',
+          fields: [
+            defineField({
+              name: 'text',
+              title: 'Button Text',
+              type: 'string',
+            }),
+            defineField({
+              name: 'link',
+              title: 'Button Link',
+              type: 'string',
+              description: 'Enter relative URL or full URL',
+            }),
+            defineField({
+              name: 'showButton',
+              title: 'Show Secondary Button',
+              type: 'boolean',
+              initialValue: true,
+            }),
+          ],
+        }),
+        defineField({
+          name: 'stats',
+          title: 'Statistics',
+          type: 'array',
+          of: [
+            {
+              type: 'object',
+              fields: [
+                defineField({
+                  name: 'number',
+                  title: 'Number',
+                  type: 'string',
+                  validation: (Rule) => Rule.required(),
+                }),
+                defineField({
+                  name: 'label',
+                  title: 'Label',
+                  type: 'string',
+                  validation: (Rule) => Rule.required(),
+                }),
+              ],
+            },
+          ],
+        }),
+        defineField({
+          name: 'rightContent',
+          title: 'Right Side Content',
+          type: 'object',
+          fields: [
+            defineField({
+              name: 'title',
+              title: 'Content Title',
+              type: 'string',
+              validation: (Rule) => Rule.required(),
+            }),
+            defineField({
+              name: 'description',
+              title: 'Content Description',
+              type: 'text',
+              validation: (Rule) => Rule.required(),
+            }),
+            defineField({
+              name: 'achievements',
+              title: 'Achievements List',
+              type: 'array',
+              of: [
+                {
+                  type: 'object',
+                  fields: [
+                    defineField({
+                      name: 'text',
+                      title: 'Achievement Text',
+                      type: 'string',
+                      validation: (Rule) => Rule.required(),
+                    }),
+                  ],
+                },
+              ],
+            }),
+          ],
+        }),
+        defineField({
+          name: 'floatingCards',
+          title: 'Floating Cards',
+          type: 'array',
+          of: [
+            {
+              type: 'object',
+              fields: [
+                defineField({
+                  name: 'title',
+                  title: 'Card Title',
+                  type: 'string',
+                  validation: (Rule) => Rule.required(),
+                }),
+                defineField({
+                  name: 'subtitle',
+                  title: 'Card Subtitle',
+                  type: 'string',
+                  validation: (Rule) => Rule.required(),
+                }),
+                defineField({
+                  name: 'position',
+                  title: 'Card Position',
+                  type: 'string',
+                  options: {
+                    list: [
+                      { title: 'Top Right', value: 'top-right' },
+                      { title: 'Bottom Left', value: 'bottom-left' },
+                    ],
+                  },
+                  validation: (Rule) => Rule.required(),
+                }),
+                defineField({
+                  name: 'showCard',
+                  title: 'Show Card',
+                  type: 'boolean',
+                  initialValue: true,
+                }),
+              ],
+            },
           ],
         }),
         defineField({
