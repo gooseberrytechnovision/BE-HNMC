@@ -361,11 +361,31 @@ export default defineType({
           validation: (Rule) => Rule.required(),
         }),
         defineField({
-          name: 'content',
-          title: 'Content',
+          name: 'subtitle',
+          title: 'Section Subtitle',
+          type: 'string',
+          description: 'Optional subtitle for the section',
+        }),
+        defineField({
+          name: 'description',
+          title: 'Main Description',
           type: 'array',
           of: [{type: 'block'}],
-          description: 'Main content about fibroids and HNMC expertise',
+          description: 'Main content about fibroids and HNMC expertise using rich text',
+          validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+          name: 'mediaType',
+          title: 'Media Type',
+          type: 'string',
+          options: {
+            list: [
+              { title: 'Image', value: 'image' },
+              { title: 'Video', value: 'video' },
+            ],
+          },
+          initialValue: 'image',
+          validation: (Rule) => Rule.required(),
         }),
         defineField({
           name: 'image',
@@ -374,6 +394,16 @@ export default defineType({
           options: {
             hotspot: true,
           },
+          hidden: ({ parent }) => parent?.mediaType !== 'image',
+        }),
+        defineField({
+          name: 'video',
+          title: 'About Video',
+          type: 'file',
+          options: {
+            accept: 'video/*',
+          },
+          hidden: ({ parent }) => parent?.mediaType !== 'video',
         }),
         defineField({
           name: 'stats',
@@ -387,15 +417,24 @@ export default defineType({
                   name: 'number',
                   title: 'Number',
                   type: 'string',
+                  validation: (Rule) => Rule.required(),
                 }),
                 defineField({
                   name: 'label',
                   title: 'Label',
                   type: 'string',
+                  validation: (Rule) => Rule.required(),
+                }),
+                defineField({
+                  name: 'icon',
+                  title: 'Icon',
+                  type: 'string',
+                  description: 'Lucide icon name (e.g., "Users", "Award", "Clock")',
                 }),
               ],
             },
           ],
+          validation: (Rule) => Rule.max(4).warning('Maximum 4 stats recommended'),
         }),
       ],
     }),
