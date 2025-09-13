@@ -252,42 +252,47 @@ export default defineType({
           validation: (Rule) => Rule.required(),
         }),
         defineField({
-          name: 'whatIsTopic',
+          name: 'mainContent',
           title: 'What is Topic Description',
           type: 'array',
           of: [{type: 'block'}],
           validation: (Rule) => Rule.required(),
+          description: 'Main description about the topic',
         }),
         defineField({
-          name: 'commonSymptomsHeading',
+          name: 'detailsHeading',
           title: 'Common Symptoms Heading',
           type: 'string',
           initialValue: 'Common Symptoms',
+          description: 'Heading for the symptoms section',
         }),
         defineField({
-          name: 'commonSymptoms',
+          name: 'detailsList',
           title: 'Common Symptoms',
           type: 'array',
           of: [{type: 'block'}],
           description: 'List of common symptoms using rich text editor',
         }), 
         defineField({
-          name: 'doYouHaveSymptoms',
+          name: 'callToAction',
           title: 'Symptoms CTA (Do You Have Fibroid Symptoms?)',
           type: 'object',
+          description: 'Call to action section for symptoms',
           fields: [
             defineField({
               name: 'heading',
               title: 'Symptoms CTA Heading',
               type: 'string',
               initialValue: 'Experiencing Symptoms?',
+              description: 'Heading for the symptoms CTA section',
             }),
             defineField({
-              name: 'symptomsExist',
+              name: 'description',
               title: 'Symptoms Description',
               type: 'array',
               of: [{type: 'block'}],
               validation: (Rule) => Rule.required(),
+              description: 'Description text for symptoms',
             }),
             defineField({
               name: 'link',
@@ -301,11 +306,12 @@ export default defineType({
               title: 'Button Text',
               type: 'string',
               initialValue: 'Get Expert Help',
+              description: 'Text displayed on the CTA button',
             }),
           ],
         }),
         defineField({
-          name: 'additionalInfo',
+          name: 'infoCards',
           title: 'Additional Information Cards',
           type: 'array',
           of: [
@@ -585,87 +591,124 @@ export default defineType({
         }),
       ],
     }),
-    
-    // Doctors Section
+
     defineField({
-      name: 'doctors',
-      title: 'Doctors Section',
+      name: 'insurance',
+      title: 'Insurance Section',
       type: 'object',
       fields: [
         defineField({
           name: 'title',
-          title: 'Section Title',
+          title: 'Insurance Title',
           type: 'string',
           validation: (Rule) => Rule.required(),
         }),
         defineField({
           name: 'subtitle',
-          title: 'Section Subtitle',
-          type: 'text',
+          title: 'Insurance Subtitle',
+          type: 'string',
         }),
         defineField({
-          name: 'featuredDoctors',
-          title: 'Featured Doctors',
+          name: 'mainContent',
+          title: 'What is Insurance Description',
           type: 'array',
-          of: [
-            {
-              type: 'reference',
-              to: [{type: 'doctor'}],
-            },
-          ],
+          of: [{type: 'block'}],
+          description: 'Main description about insurance coverage and benefits',
         }),
         defineField({
-          name: 'ctaButton',
-          title: 'View All Doctors Button',
+          name: 'detailsHeading',
+          title: 'Coverage Details Heading',
+          type: 'string',
+          initialValue: 'Coverage Details',
+          description: 'Heading for the insurance coverage details section',
+        }),
+        defineField({
+          name: 'detailsList',
+          title: 'Coverage Details',
+          type: 'array',
+          of: [{type: 'block'}],
+          description: 'List of coverage details using rich text editor',
+        }), 
+        defineField({
+          name: 'callToAction',
+          title: 'Insurance CTA (Contact for Insurance Questions)',
           type: 'object',
+          description: 'Call to action section for insurance inquiries',
           fields: [
             defineField({
-              name: 'text',
-              title: 'Button Text',
+              name: 'heading',
+              title: 'Insurance CTA Heading',
               type: 'string',
+              initialValue: 'Have Insurance Questions?',
+              description: 'Heading for the insurance contact section',
+            }),
+            defineField({
+              name: 'description',
+              title: 'Insurance Description',
+              type: 'array',
+              of: [{type: 'block'}],
+              description: 'Description text for insurance inquiries',
             }),
             defineField({
               name: 'link',
               title: 'Button Link',
-              type: 'url',
+              type: 'string',
+              description: 'Can be relative URL (e.g., /contact) or external URL',
+              validation: (Rule) => Rule.required(),
+            }),
+            defineField({
+              name: 'buttonText',
+              title: 'Button Text',
+              type: 'string',
+              initialValue: 'Contact Us',
+              description: 'Text displayed on the CTA button',
             }),
           ],
         }),
-      ],
-    }),
-
-    // Insurance & Billing Section
-    defineField({
-      name: 'insuranceBilling',
-      title: 'Insurance & Billing Section',
-      type: 'object',
-      fields: [
         defineField({
-          name: 'title',
-          title: 'Insurance & Billing Title',
-          type: 'string',
-          validation: (Rule) => Rule.required(),
-        }),
-        defineField({
-          name: 'insuranceBillingList',
-          title: 'Insurance & Billing',
+          name: 'infoCards',
+          title: 'Additional Insurance Information Cards',
           type: 'array',
           of: [
             {
               type: 'object',
+              name: 'infoCard',
+              title: 'Insurance Information Card',
               fields: [
                 defineField({
                   name: 'title',
-                  title: 'Insurance & Billing Title',
-                  type: 'text',
+                  title: 'Card Title',
+                  type: 'string',
                   validation: (Rule) => Rule.required(),
-                }), 
+                }),
+                defineField({
+                  name: 'description',
+                  title: 'Card Description',
+                  type: 'text',
+                  rows: 3,
+                  validation: (Rule) => Rule.required(),
+                }),
+                defineField({
+                  name: 'icon',
+                  title: 'Icon Name',
+                  type: 'string',
+                  description: 'Lucide icon name (e.g., shield, credit-card, check-circle)',
+                  validation: (Rule) => Rule.required(),
+                }),
+                defineField({
+                  name: 'showCard',
+                  title: 'Show Card',
+                  type: 'boolean',
+                  initialValue: true,
+                }),
               ],
             },
           ],
+          validation: (Rule) => Rule.max(2),
         }),
       ],
     }),
+
 
     // Testimonials Section
     defineField({
