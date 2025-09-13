@@ -747,6 +747,15 @@ export default defineType({
                   type: 'string',
                 }),
                 defineField({
+                  name: 'profilePhoto',
+                  title: 'Profile Photo',
+                  type: 'image',
+                  options: {
+                    hotspot: true,
+                  },
+                  description: 'Optional profile photo for the testimonial author',
+                }),
+                defineField({
                   name: 'rating',
                   title: 'Rating',
                   type: 'number',
