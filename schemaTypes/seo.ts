@@ -9,14 +9,14 @@ export default defineType({
       name: 'title',
       title: 'Page Title',
       type: 'string',
-      description: 'Title for search engines (60 characters recommended)',
+      description: 'Title for search engines (60 characters recommended) - *DONT CHANGE UNLESS ABSOLUTELY NECESSARY*',
       validation: (Rule) => Rule.max(60).warning('Longer titles may be truncated by search engines'),
     }),
     defineField({
       name: 'description',
       title: 'Meta Description',
       type: 'text',
-      description: 'Description for search engines (160 characters recommended)',
+      description: 'Description for search engines (160 characters recommended) - *DONT CHANGE UNLESS ABSOLUTELY NECESSARY*',
       validation: (Rule) => Rule.max(160).warning('Longer descriptions may be truncated by search engines'),
     }),
     defineField({
@@ -24,7 +24,7 @@ export default defineType({
       title: 'Keywords',
       type: 'array',
       of: [{ type: 'string' }],
-      description: 'Relevant keywords for this page (comma-separated)',
+      description: 'Relevant keywords for this page (comma-separated) - *DONT CHANGE UNLESS ABSOLUTELY NECESSARY*',
       options: {
         layout: 'tags',
       },
@@ -131,10 +131,10 @@ export default defineType({
       description: 'description',
     },
     prepare(selection) {
-      const { title, description } = selection
+      const { title } = selection
       return {
-        title: title || 'Untitled SEO',
-        subtitle: description ? `${description.substring(0, 60)}...` : 'No description',
+        title: title || 'Fibroid Center SEO',
+        subtitle: 'Change SEO Settings only if Critical, For Non-Critical changes inform dev team to update SEO from Codebase',
       }
     },
   },
