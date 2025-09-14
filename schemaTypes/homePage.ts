@@ -5,43 +5,24 @@ export default defineType({
   title: 'Home Page',
   type: 'document',
   fields: [
-    // SEO and Meta
+    // SEO Reference
     defineField({
       name: 'seo',
-      title: 'SEO',
-      type: 'object',
-      fields: [
-        defineField({
-          name: 'title',
-          title: 'Page Title',
-          type: 'string',
-          description: 'Title for search engines (60 characters recommended)',
-          validation: (Rule) => Rule.max(60).warning('Longer titles may be truncated by search engines'),
-        }),
-        defineField({
-          name: 'description',
-          title: 'Meta Description',
-          type: 'text',
-          description: 'Description for search engines (160 characters recommended)',
-          validation: (Rule) => Rule.max(160).warning('Longer descriptions may be truncated by search engines'),
-        }),
-        defineField({
-          name: 'ogImage',
-          title: 'Open Graph Image',
-          type: 'image',
-          description: 'Image displayed when shared on social media',
-          options: {
-            hotspot: true,
-          },
-        }),
-      ],
+      title: 'SEO & Meta',
+      type: 'reference',
+      to: [{ type: 'seo' }],
+      description: 'Select or create SEO settings for this page',
     }),
 
     // Hero Section
     defineField({
       name: 'hero',
-      title: 'Hero Section',
+      title: '🏠 Hero Section',
       type: 'object',
+      options: {
+        collapsible: true,
+        collapsed: true,
+      },
       fields: [
         defineField({
           name: 'headline',
@@ -236,8 +217,12 @@ export default defineType({
     // Topic Section
     defineField({
       name: 'topic',
-      title: 'Topic Section',
+      title: '📋 Topic Section (About Fibroids)',
       type: 'object',
+      options: {
+        collapsible: true,
+        collapsed: true,
+      },
       fields: [
         defineField({
           name: 'title',
@@ -357,8 +342,12 @@ export default defineType({
     // About Section
     defineField({
       name: 'about',
-      title: 'About Section',
+      title: '🏥 About Section',
       type: 'object',
+      options: {
+        collapsible: true,
+        collapsed: true,
+      },
       fields: [
         defineField({
           name: 'title',
@@ -448,8 +437,12 @@ export default defineType({
     // Services Section
     defineField({
       name: 'services',
-      title: 'Services Section',
+      title: '⚕️ Services Section',
       type: 'object',
+      options: {
+        collapsible: true,
+        collapsed: true,
+      },
       fields: [
         defineField({
           name: 'title',
@@ -531,8 +524,12 @@ export default defineType({
     // Resource Section
     defineField({
       name: 'resources',
-      title: 'Resources Section',
+      title: '📖 Resources Section',
       type: 'object',
+      options: {
+        collapsible: true,
+        collapsed: true,
+      },
       fields: [
         defineField({
           name: 'title',
@@ -594,8 +591,12 @@ export default defineType({
 
     defineField({
       name: 'insurance',
-      title: 'Insurance Section',
+      title: '💳 Insurance Section',
       type: 'object',
+      options: {
+        collapsible: true,
+        collapsed: true,
+      },
       fields: [
         defineField({
           name: 'title',
@@ -713,8 +714,12 @@ export default defineType({
     // Testimonials Section
     defineField({
       name: 'testimonials',
-      title: 'Testimonials Section',
+      title: '⭐ Testimonials Section',
       type: 'object',
+      options: {
+        collapsible: true,
+        collapsed: true,
+      },
       fields: [
         defineField({
           name: 'title',
@@ -771,8 +776,12 @@ export default defineType({
     // Register For Patient Portal
     defineField({
       name: 'registerForPatientPortal',
-      title: 'Register For Patient Portal Section',
+      title: '🔐 Patient Portal Section',
       type: 'object',
+      options: {
+        collapsible: true,
+        collapsed: true,
+      },
       fields: [
         defineField({
           name: 'title',
@@ -830,8 +839,12 @@ export default defineType({
     // Footer
     defineField({
       name: 'footer',
-      title: 'Footer',
+      title: 'Footer Section',
       type: 'object',
+      options: {
+        collapsible: true,
+        collapsed: true,
+      },
       fields: [
         defineField({
           name: 'logo',
