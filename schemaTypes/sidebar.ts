@@ -64,7 +64,7 @@ export default defineType({
                   { title: 'Testimonials', value: 'testimonials' },
                   { title: 'Book Appointment', value: 'appointment' },
                   { title: 'Insurance & Billing', value: 'insurance' },
-                  { title: 'Patient Portal', value: 'register' }
+                  { title: 'CTA Section', value: 'cta' }
                 ]
               },
               hidden: ({ parent }) => parent?.linkType !== 'internal'

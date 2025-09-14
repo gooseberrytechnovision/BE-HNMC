@@ -772,10 +772,10 @@ export default defineType({
       ],
     }),
 
-    // Register For Patient Portal
+    // Call to Action Section
     defineField({
-      name: 'registerForPatientPortal',
-      title: '🔐 Patient Portal Section',
+      name: 'cta',
+      title: '🎯 Call to Action Section',
       type: 'object',
       options: {
         collapsible: true,
@@ -784,56 +784,48 @@ export default defineType({
       fields: [
         defineField({
           name: 'title',
-          title: 'Register For Patient Portal Title',
+          title: 'CTA Title',
           type: 'string',
           validation: (Rule) => Rule.required(),
         }),
         defineField({
-          name: 'subtitle',
-          title: 'Register For Patient Portal Subtitle',
-          type: 'text',
+          name: 'description',
+          title: 'CTA Description',
+          type: 'array',
+          of: [{type: 'block'}],
+          description: 'Rich text description for the CTA section',
+          validation: (Rule) => Rule.required(),
         }),
         defineField({
-          name: 'contactInfo',
-          title: 'Contact Information',
-          type: 'object',
-          fields: [
-            defineField({
-              name: 'phone',
-              title: 'Phone Number',
-              type: 'string',
-            }),
-            defineField({
-              name: 'email',
-              title: 'Email Address',
-              type: 'string',
-            }),
-            defineField({
-              name: 'address',
-              title: 'Address',
-              type: 'text',
-            }),
-          ],
-        }),
-        defineField({
-          name: 'signUpButton',
-          title: 'Book Appointment Button',
+          name: 'button',
+          title: 'CTA Button',
           type: 'object',
           fields: [
             defineField({
               name: 'text',
               title: 'Button Text',
               type: 'string',
+              validation: (Rule) => Rule.required(),
             }),
             defineField({
               name: 'link',
               title: 'Button Link',
-              type: 'url',
+              type: 'string',
+              description: 'Enter relative URL (e.g., #appointment) or full URL (e.g., https://example.com)',
+              validation: (Rule) => Rule.required(),
             }),
           ],
         }),
+        defineField({
+          name: 'showSection',
+          title: 'Show CTA Section',
+          type: 'boolean',
+          initialValue: true,
+          description: 'Toggle to show/hide the entire CTA section',
+        }),
       ],
     }),
+
 
   ],
   preview: {
