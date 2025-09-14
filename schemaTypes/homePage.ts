@@ -710,7 +710,6 @@ export default defineType({
       ],
     }),
 
-
     // Testimonials Section
     defineField({
       name: 'testimonials',
@@ -836,83 +835,6 @@ export default defineType({
       ],
     }),
 
-    // Footer
-    defineField({
-      name: 'footer',
-      title: 'Footer Section',
-      type: 'object',
-      options: {
-        collapsible: true,
-        collapsed: true,
-      },
-      fields: [
-        defineField({
-          name: 'logo',
-          title: 'Footer Logo',
-          type: 'image',
-        }),
-        defineField({
-          name: 'description',
-          title: 'Footer Description',
-          type: 'array',
-          of: [{type: 'block'}],
-          description: 'Eg: Copyright 2025 HNMC. or All rights reserved',
-        }),
-        defineField({
-          name: 'socialLinks',
-          title: 'Social Media Links',
-          type: 'array',
-          of: [
-            {
-              type: 'object',
-              fields: [
-                defineField({
-                  name: 'platform',
-                  title: 'Platform',
-                  type: 'string',
-                  options: {
-                    list: [
-                      {title: 'Facebook', value: 'facebook'},
-                      {title: 'Twitter', value: 'twitter'},
-                      {title: 'Instagram', value: 'instagram'},
-                      {title: 'LinkedIn', value: 'linkedin'},
-                      {title: 'YouTube', value: 'youtube'},
-                    ],
-                  },
-                }),
-                defineField({
-                  name: 'url',
-                  title: 'URL',
-                  type: 'url',
-                }),
-              ],
-            },
-          ],
-        }),
-        defineField({
-          name: 'footerLinks',
-          title: 'Footer Links',
-          type: 'array',
-          of: [
-            {
-              type: 'object',
-              fields: [
-                defineField({
-                  name: 'title',
-                  title: 'Link Title',
-                  type: 'string',
-                }),
-                defineField({
-                  name: 'url',
-                  title: 'Link URL',
-                  type: 'url',
-                }),
-              ],
-            },
-          ],
-        }),
-      ],
-    }),
   ],
   preview: {
     select: {
