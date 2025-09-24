@@ -567,7 +567,6 @@ export default defineType({
                   title: 'Resource Icon',
                   type: 'string',
                   description: 'Lucide icon name (e.g., "BookOpen", "FileText", "Download")',
-                  validation: (Rule) => Rule.required(),
                 }),
                 defineField({
                   name: 'link',
