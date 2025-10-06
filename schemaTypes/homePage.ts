@@ -5,14 +5,6 @@ export default defineType({
   title: 'Home Page',
   type: 'document',
   fields: [
-    // SEO Reference
-    defineField({
-      name: 'seo',
-      title: 'SEO & Meta',
-      type: 'reference',
-      to: [{ type: 'seo' }],
-      description: 'Select or create SEO settings for this page',
-    }),
 
     // Hero Section
     defineField({
@@ -830,8 +822,8 @@ export default defineType({
   ],
   preview: {
     select: {
-      title: 'seo.title',
-      subtitle: 'hero.headline',
+      title: 'hero.headline',
+      subtitle: 'hero.subheadline',
     },
   },
 })
