@@ -9,14 +9,14 @@ export default defineType({
       name: 'title',
       title: 'Page Title',
       type: 'string',
-      description: 'Title for search engines (60 characters recommended) - *DONT CHANGE UNLESS ABSOLUTELY NECESSARY*',
+      description: 'Title for search engines (60 characters recommended)',
       validation: (Rule) => Rule.max(60).warning('Longer titles may be truncated by search engines'),
     }),
     defineField({
       name: 'description',
       title: 'Meta Description',
       type: 'text',
-      description: 'Description for search engines (160 characters recommended) - *DONT CHANGE UNLESS ABSOLUTELY NECESSARY*',
+      description: 'Description for search engines (160 characters recommended)',
       validation: (Rule) => Rule.max(160).warning('Longer descriptions may be truncated by search engines'),
     }),
     defineField({
@@ -24,7 +24,7 @@ export default defineType({
       title: 'Keywords',
       type: 'array',
       of: [{ type: 'string' }],
-      description: 'Relevant keywords for this page (comma-separated) - *DONT CHANGE UNLESS ABSOLUTELY NECESSARY*',
+      description: 'Relevant keywords for this page (comma-separated)',
       options: {
         layout: 'tags',
       },
@@ -100,29 +100,8 @@ export default defineType({
       name: 'structuredData',
       title: 'Structured Data (JSON-LD)',
       type: 'text',
-      description: 'JSON-LD structured data for rich snippets (optional)',
+      description: 'JSON-LD structured data for rich snippets',
       rows: 10,
-    }),
-    defineField({
-      name: 'robotsTxt',
-      title: 'Robots.txt Instructions',
-      type: 'object',
-      fields: [
-        defineField({
-          name: 'allow',
-          title: 'Allow',
-          type: 'array',
-          of: [{ type: 'string' }],
-          description: 'Paths to allow in robots.txt',
-        }),
-        defineField({
-          name: 'disallow',
-          title: 'Disallow',
-          type: 'array',
-          of: [{ type: 'string' }],
-          description: 'Paths to disallow in robots.txt',
-        }),
-      ],
     }),
   ],
   preview: {
