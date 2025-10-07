@@ -54,29 +54,6 @@ export default defineType({
       validation: (Rule) => Rule.max(160).warning('Longer descriptions may be truncated by social platforms'),
     }),
     defineField({
-      name: 'twitterCard',
-      title: 'Twitter Card Type',
-      type: 'string',
-      options: {
-        list: [
-          { title: 'Summary', value: 'summary' },
-          { title: 'Summary Large Image', value: 'summary_large_image' },
-          { title: 'App', value: 'app' },
-          { title: 'Player', value: 'player' },
-        ],
-      },
-      initialValue: 'summary_large_image',
-    }),
-    defineField({
-      name: 'twitterImage',
-      title: 'Twitter Image',
-      type: 'image',
-      description: 'Image for Twitter cards (1200x675px recommended)',
-      options: {
-        hotspot: true,
-      },
-    }),
-    defineField({
       name: 'canonicalUrl',
       title: 'Canonical URL',
       type: 'url',
