@@ -24,7 +24,7 @@ export default defineType({
       title: 'Keywords',
       type: 'array',
       of: [{ type: 'string' }],
-      description: 'Relevant keywords for this page (comma-separated)',
+      description: 'Relevant keywords for this page',
       options: {
         layout: 'tags',
       },
