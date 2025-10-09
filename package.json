@@ -6,10 +6,15 @@
   "license": "UNLICENSED",
   "scripts": {
     "dev": "sanity dev",
+    "dev:uat": "SANITY_ACTIVE_ENV=uat sanity dev",
+    "dev:prod": "SANITY_ACTIVE_ENV=production sanity dev",
     "start": "sanity start",
     "build": "sanity build",
+    "build:uat": "SANITY_ACTIVE_ENV=uat sanity build",
+    "build:prod": "SANITY_ACTIVE_ENV=production sanity build",
     "deploy": "sanity deploy",
-    "deploy-graphql": "sanity graphql deploy"
+    "deploy:uat": "SANITY_ACTIVE_ENV=uat sanity build && SANITY_ACTIVE_ENV=uat npx sanity deploy",
+    "deploy:prod": "SANITY_ACTIVE_ENV=production sanity build && SANITY_ACTIVE_ENV=production npx sanity deploy"
   },
   "keywords": [
     "sanity"
