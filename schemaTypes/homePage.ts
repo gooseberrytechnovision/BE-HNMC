@@ -729,7 +729,11 @@ export default defineType({
                 defineField({
                   name: 'quote',
                   title: 'Testimonial Quote',
-                  type: 'text',
+                  type: 'array',
+                  of: [
+                    {type: 'block'},
+                    {type: 'image'}
+                  ],
                   validation: (Rule) => Rule.required(),
                 }),
                 defineField({
